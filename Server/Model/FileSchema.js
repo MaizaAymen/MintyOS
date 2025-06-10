@@ -36,5 +36,6 @@ const fileSchema= new mongoose.fileSchema({
         type:Date,
         default:Date.now
     }
-
+    
 })
+export default mongoose.model('File',fileSchema)
