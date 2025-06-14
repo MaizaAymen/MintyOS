@@ -38,4 +38,6 @@ const fileSchema= new mongoose.fileSchema({
     }
     
 })
-export default mongoose.model('File',fileSchema)
+//create mongoose model named File based on my fileSchema
+//register this model with mongoose so it can be used throuput my app 
+module.exports=mongoose('File',fileSchema);
