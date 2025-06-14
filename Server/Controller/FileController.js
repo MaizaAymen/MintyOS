@@ -40,3 +40,19 @@ exports.listeFiles=async(req,res)=>{
     return res.satsus(500).json({error:"we face error when i need to see all files"});
    }
  }
+ exports.updateFile=async(req,res)=>{
+    const {fileId}=req.parms;
+    const{content}=req.body;
+    try{
+        const file= await File.find({_id:fileId})
+        if(!file){
+            return res.status(404).json({error:"File not found"});
+        }   
+        file.content=content;
+        await file.save();
+        return res.status(200).json(file);
+    }catch(error){
+        return res.status(500).json({error:" we have faced a problem while updating file "})
+    }
+
+ }
