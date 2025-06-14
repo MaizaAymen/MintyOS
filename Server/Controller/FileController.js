@@ -20,17 +20,23 @@ exports.createFile= async (res,req)=>{
     }
 
  }
- exports.deleteFile=async(req,res)=>{
+exports.deleteFile=async(req,res)=>{
 const {fileId}=req.parms;
 try{
     if(!fileId){
         return res.status(500).json({error:"fileid not found"});
-
-
     }
     await File.deleteFile(fileId);
     return res.status(200).json({message:"file deleted successfully"})
 }catch(error){
     console.error("we face error while deleting file : ",error);
 }
+ }
+exports.listeFiles=async(req,res)=>{
+   try{
+    const files=await File.find({});
+    return res.status(200).json(files);
+   }catch(error){
+    return res.satsus(500).json({error:"we face error when i need to see all files"});
+   }
  }
