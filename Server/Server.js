@@ -2,6 +2,7 @@ const express =require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const fileRoutes = require('./Routes/Fileroutes');
+const Userrouter = require('./Routes/Userrouter');
 const app = express();
 app.use(express.json());
 
@@ -22,6 +23,8 @@ mongoose.connect("mongodb+srv://maizaaymena:maizaaymena123@cluster0.fa8mu.mongod
 });
 
 app.use('/api/files',fileRoutes);
+app.use('/api/User',Userrouter
+);
 
 app.get('/',(req,res)=>{
     res.send("hello i am aymen");
