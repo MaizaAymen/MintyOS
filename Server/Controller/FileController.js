@@ -1,9 +1,9 @@
 const fileSchema= require('../Model/FileSchema');
-const File=require('../Model/FileSchema');
 
-exports.createFile= async (res,req)=>{
+
+exports.createFile= async (req,res)=>{
     const{filename,path,parentPath,isDirectory,owner,content}=req.body;
-    const {userid}=req.userid
+    
     try{
         if(!filename){
               return res.status(400).json(error("Filename is required"));
@@ -13,9 +13,9 @@ exports.createFile= async (res,req)=>{
              path,
              parentPath,
              isDirectory,
-             owner:userid,
+             
         });
-        return status(201).json(newFile);
+        return res.status(201).json(newFile);
     }catch(error){
         console.error("Error creating file : " , error);
     }

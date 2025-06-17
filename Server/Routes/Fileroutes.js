@@ -10,3 +10,6 @@ router.delete('/delete',fileController.deleteFile);
 router.get('/list',fileController.listeFiles);
 
 router.put('/update',fileController.updateFile);
+
+
+module.exports=router;

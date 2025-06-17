@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const fileRoutes = require('./Routes/Fileroutes');
 const app = express();
+app.use(express.json());
 
 const port = 4000;
 app.use(cors(
@@ -19,7 +20,9 @@ mongoose.connect("mongodb+srv://maizaaymena:maizaaymena123@cluster0.fa8mu.mongod
 }).catch((error) => {
     console.error("Error connecting to MongoDB:", error);
 });
+
 app.use('/api/files',fileRoutes);
+
 app.get('/',(req,res)=>{
     res.send("hello i am aymen");
 })
