@@ -1,4 +1,5 @@
-const fileSchema= require ('./Model/FileSchema');
+const fileSchema= require('../Model/FileSchema');
+const File=require('../Model/FileSchema');
 
 exports.createFile= async (res,req)=>{
     const{filename,path,parentPath,isDirectory,owner,content}=req.body;

@@ -1,4 +1,4 @@
-const mongoose= require(('mongoose'));
+const mongoose= require('mongoose');
 const fileSchema= new mongoose.fileSchema({
     filename:{
         type:String,
@@ -9,8 +9,8 @@ const fileSchema= new mongoose.fileSchema({
         required:true
     },
     parentPath:{
-        type:mongoose.Schema.types.objectId,
-        ref:"File"
+        type:"String",
+        required:false
     },
     isDirectory:{
         type:Boolean,
@@ -21,8 +21,8 @@ const fileSchema= new mongoose.fileSchema({
         default:Date.now
     },
     owner:{
-        type:mongoose.Schema.types.objectId,
-        ref:"User"
+        type:String,
+        required:true
     },
     content:{
         type:String,

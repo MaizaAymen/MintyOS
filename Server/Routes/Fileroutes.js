@@ -7,6 +7,6 @@ router.post('/create',fileController.createFile);
 
 router.delete('/delete',fileController.deleteFile);
 
-router.get('list',fileController.listeFiles);
+router.get('/list',fileController.listeFiles);
 
 router.put('/update',fileController.updateFile);
