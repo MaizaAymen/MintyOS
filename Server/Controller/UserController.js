@@ -39,3 +39,18 @@ exports.login=async (req,res)=>{
 
     }
 }
+
+
+exports.getallusers=async (req,res)=>{
+try {
+    const userr = await user.find({})
+    console.log("all users are : ",userr);
+    return res.status(200).json(userr);
+} catch (error) {
+    console.error("we face some error while getting all users : ",error)
+    return res.status(500).json({
+        error:"we face some error while getting all users",
+      
+    })
+}
+}
