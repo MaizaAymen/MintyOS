@@ -19,3 +19,16 @@ exports.register= async (req,res)=>{
         
     }
 }
+
+
+exports.login=async (req,res)=>{
+    const {username,password}=req.body;
+    try {
+        if(!username || !password){
+            return res.status(400).json({error:"username and password are required"});
+        }
+    } catch (error) {
+        console.error("we face some errerur when we made the login :",error);
+
+    }
+}
