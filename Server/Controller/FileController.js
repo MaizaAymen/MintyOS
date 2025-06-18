@@ -15,7 +15,11 @@ exports.createFile= async (req,res)=>{
              isDirectory,
              
         });
+        newFile.save()
         return res.status(201).json(newFile);
+        
+
+
     }catch(error){
         console.error("Error creating file : " , error);
     }
@@ -35,10 +39,10 @@ try{
  }
 exports.listeFiles=async(req,res)=>{
    try{
-    const files=await File.find({});
+    const files=await fileSchema.find({});
     return res.status(200).json(files);
    }catch(error){
-    return res.satsus(500).json({error:"we face error when i need to see all files"});
+    return res.status(500).json({error:"we face error when i need to see all files"});
    }
  }
 exports.updateFile=async(req,res)=>{
